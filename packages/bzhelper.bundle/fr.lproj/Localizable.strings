@@ -1,0 +1,70 @@
+// Menu Title
+"iOS宝藏" = "Trésor iOS";
+
+// Menu Items
+"广告加速" = "Accélération des pubs";
+"加速倍数" = "Multiplicateur";
+"广告屏蔽" = "Blocage des pubs";
+"屏蔽模式" = "Mode de blocage";
+"默认" = "Par défaut";
+"自定义" = "Personnalisé";
+"混合" = "Mixte";
+"编辑规则" = "Modifier les règles";
+"游戏去广" = "Bloquer les pubs des jeux";
+"禁用摇广" = "Désactiver les pubs de secousse";
+"断网去广" = "Blocage réseau";
+"触摸轨迹" = "Trajectoire tactile";
+"内购解锁" = "Déverrouiller les achats";
+
+// Alerts
+"已开启" = "Activé";
+"我知道了" = "J'ai compris";
+"不再提示" = "Ne plus afficher";
+"保存" = "Enregistrer";
+"取消" = "Annuler";
+"保存成功" = "Enregistrement réussi";
+"稍后重启" = "Redémarrer plus tard";
+"立即重启" = "Redémarrer maintenant";
+"保存失败" = "Échec de l'enregistrement";
+"请检查文件权限或磁盘空间" = "Vérifiez les permissions ou l'espace disque";
+
+// Info Section
+"插件版本" = "Version du plugin";
+"宝藏频道" = "Canal Trésor";
+"来了老弟" = "Rejoindre";
+"作者主页" = "Page d'accueil de l'auteur";
+
+// Alert Messages
+"仅适用于一般的视频广告加速" = "Applicable uniquement à l'accélération des pubs vidéo";
+"建议速率15～25倍领奖励" = "Recommandé 15-25x pour les récompenses";
+"请勿与广告屏蔽同时开启" = "Ne pas activer avec le blocage des pubs";
+"可拦截大部分的应用广告" = "Peut bloquer la plupart des pubs d'applications";
+"如一般的伪装上架影视漫画软件" = "Comme les apps vidéo/manga déguisées";
+"如酷安、喜马拉雅、迅雷、布蕾4K、大师兄、小狐狸等" = "Coolapk, Himalaya, Thunder, Bulei4K, etc.";
+"公众号：木木iOS分享有制作教程" = "WeChat officiel: Mumu iOS Sharing avec tutoriels";
+"已启用内置5000+广告拦截规则" = "5000+ règles de blocage intégrées activées";
+"已启用自定义拦截规则" = "Règles personnalisées activées";
+"可点击「编辑规则」进行修改" = "Cliquez sur «Modifier les règles» pour changer";
+"同时启用默认及自定义拦截规则" = "Règles par défaut et personnalisées activées";
+"仅用于去除大部分的游戏广告" = "Pour supprimer la plupart des pubs de jeux";
+"可配合加速及广告屏蔽使用" = "Peut être utilisé avec l'accélération et le blocage";
+"开启此功能后需重启APP" = "Redémarrage de l'APP requis après activation";
+"开启后可在屏幕显示手势触摸轨迹" = "Affiche la trajectoire tactile à l'écran";
+"单独推荐：Touch-Viz" = "Recommandé: Touch-Viz";
+"目前仅适用于一般本地验证类的应用" = "Applicable uniquement aux apps de vérification locale";
+"如喝水时间、解压专家、Widgy、倒数日，等" = "Water Time, Unzip Expert, Widgy, Compte à rebours, etc.";
+"单独推荐：@SatellaJailed" = "Recommandé: @SatellaJailed";
+"禁止部分摇动手机时的广告跳转" = "Bloque certaines redirections de pubs lors du secouage";
+"单独可用@huamidev的ShakeShield，越狱用禁字诀" = "Utilisez @huamidev's ShakeShield, 禁字訣 pour jailbreak";
+"简单粗暴适用于单机应用/游戏" = "Simple et efficace pour les apps/jeux hors ligne";
+"单独可用@DevelopCubeLab的DisconnectAppNetwork" = "Utilisez @DevelopCubeLab's DisconnectAppNetwork";
+
+// Footer
+"仅供免费测试，切勿做它用！" = "Pour test gratuit uniquement, ne pas utiliser autrement!";
+"感谢来了老弟在初版中的错误修正" = "Merci pour les corrections de bugs dans la première version";
+"感谢公众号：十三座州府I的去广告优化" = "Merci pour l'optimisation: 十三座州府I";
+"感谢🌺huami的鼎力支持代码优化及改善建议！" = "Merci à 🌺huami pour l'optimisation et les suggestions!";
+
+"🩷1.6.6最新版🩷 \n\n❤️三指双击打开功能菜单❤️ \n\n 💛双指双击菜单即可关闭💛 \n\n  💚广告屏蔽游戏去广告已默认开启💚 \n\n 🩵插件免费分享，仅供学习交流，勿做他用！🩵\n\n💜 请于下载后24小时内，彻底删除本插件！！💜\n\n💗TG频道：@iosrxwy💗" = "🩷Version 1.6.6🩷 \n\n❤️Triple-tap avec trois doigts pour ouvrir le menu❤️ \n\n 💛Double-tap avec deux doigts pour fermer le menu💛 \n\n  💚Blocage des publicités et suppression des publicités dans les jeux activés par défaut💚 \n\n 🩵Le plugin est gratuit pour le partage, uniquement pour l'apprentissage et la communication!🩵\n\n💜 Veuillez supprimer complètement ce plugin dans les 24 heures suivant le téléchargement!!💜\n\n💗Canal TG: @iosrxwy💗";
+
+"发布地址" = "Page des Versions"; 

@@ -1,0 +1,71 @@
+// Menu Title
+"iOS宝藏" = "iOS Kho báu";
+
+// Menu Items
+"广告加速" = "Tăng tốc quảng cáo";
+"加速倍数" = "Hệ số tốc độ";
+"广告屏蔽" = "Chặn quảng cáo";
+"屏蔽模式" = "Chế độ chặn";
+"默认" = "Mặc định";
+"自定义" = "Tùy chỉnh";
+"混合" = "Hỗn hợp";
+"编辑规则" = "Chỉnh sửa quy tắc";
+"游戏去广" = "Xóa quảng cáo game";
+"禁用摇广" = "Tắt quảng cáo lắc";
+"断网去广" = "Chặn mạng";
+"触摸轨迹" = "Đường chạm";
+"内购解锁" = "Mở khóa mua trong ứng dụng";
+
+// Alerts
+"已开启" = "Đã bật";
+"我知道了" = "Tôi hiểu rồi";
+"不再提示" = "Không hiển thị nữa";
+"保存" = "Lưu";
+"取消" = "Hủy";
+"保存成功" = "Lưu thành công";
+"稍后重启" = "Khởi động lại sau";
+"立即重启" = "Khởi động lại ngay";
+"保存失败" = "Lưu thất bại";
+"请检查文件权限或磁盘空间" = "Kiểm tra quyền truy cập hoặc dung lượng ổ đĩa";
+
+// Info Section
+"插件版本" = "Phiên bản plugin";
+"宝藏频道" = "Kênh Kho báu";
+"来了老弟" = "Tham gia";
+"作者主页" = "Trang chủ tác giả";
+
+// Alert Messages
+"仅适用于一般的视频广告加速" = "Chỉ áp dụng cho tăng tốc quảng cáo video thông thường";
+"建议速率15～25倍领奖励" = "Khuyến nghị tốc độ 15-25x để nhận phần thưởng";
+"请勿与广告屏蔽同时开启" = "Không bật cùng lúc với chặn quảng cáo";
+"可拦截大部分的应用广告" = "Có thể chặn hầu hết quảng cáo ứng dụng";
+"如一般的伪装上架影视漫画软件" = "Như ứng dụng video/manga giả mạo";
+"如酷安、喜马拉雅、迅雷、布蕾4K、大师兄、小狐狸等" = "Coolapk, Himalaya, Thunder, Bulei4K, v.v.";
+"公众号：木木iOS分享有制作教程" = "WeChat: Mumu iOS Sharing có hướng dẫn";
+"已启用内置5000+广告拦截规则" = "Đã bật 5000+ quy tắc chặn tích hợp";
+"已启用自定义拦截规则" = "Đã bật quy tắc tùy chỉnh";
+"可点击「编辑规则」进行修改" = "Nhấp vào 「Chỉnh sửa quy tắc」 để thay đổi";
+"同时启用默认及自定义拦截规则" = "Bật cả quy tắc mặc định và tùy chỉnh";
+"仅用于去除大部分的游戏广告" = "Chỉ để xóa hầu hết quảng cáo game";
+"可配合加速及广告屏蔽使用" = "Có thể sử dụng với tăng tốc và chặn quảng cáo";
+"开启此功能后需重启APP" = "Cần khởi động lại APP sau khi bật tính năng này";
+"开启后可在屏幕显示手势触摸轨迹" = "Hiển thị đường chạm trên màn hình khi bật";
+"单独推荐：Touch-Viz" = "Đề xuất: Touch-Viz";
+"目前仅适用于一般本地验证类的应用" = "Hiện chỉ áp dụng cho ứng dụng xác thực cục bộ";
+"如喝水时间、解压专家、Widgy、倒数日，等" = "Water Time, Unzip Expert, Widgy, Đếm ngược, v.v.";
+"单独推荐：@SatellaJailed" = "Đề xuất: @SatellaJailed";
+"禁止部分摇动手机时的广告跳转" = "Chặn một số chuyển hướng quảng cáo khi lắc";
+"单独可用@huamidev的ShakeShield，越狱用禁字诀" = "Sử dụng @huamidev's ShakeShield, 禁字訣 cho jailbreak";
+"简单粗暴适用于单机应用/游戏" = "Đơn giản và hiệu quả cho ứng dụng/game offline";
+"单独可用@DevelopCubeLab的DisconnectAppNetwork" = "Sử dụng @DevelopCubeLab's DisconnectAppNetwork";
+
+// Footer
+"仅供免费测试，切勿做它用！" = "Chỉ dùng cho thử nghiệm miễn phí, không sử dụng cho mục đích khác!";
+"感谢来了老弟在初版中的错误修正" = "Cảm ơn vì đã sửa lỗi trong phiên bản đầu tiên";
+"感谢公众号：十三座州府I的去广告优化" = "Cảm ơn vì tối ưu hóa: 十三座州府I";
+"感谢🌺huami的鼎力支持代码优化及改善建议！" = "Cảm ơn 🌺huami vì tối ưu hóa và đề xuất cải thiện!";
+
+// Welcome Information
+"🩷1.6.6最新版🩷 \n\n❤️三指双击打开功能菜单❤️ \n\n 💛双指双击菜单即可关闭💛 \n\n  💚广告屏蔽游戏去广告已默认开启💚 \n\n 🩵插件免费分享，仅供学习交流，勿做他用！🩵\n\n💜 请于下载后24小时内，彻底删除本插件！！💜\n\n💗TG频道：@iosrxwy💗" = "🩷Phiên bản 1.6.6🩷 \n\n❤️Nhấn ba lần bằng ba ngón tay để mở menu❤️ \n\n 💛Nhấn đúp bằng hai ngón tay để đóng menu💛 \n\n  💚Chặn quảng cáo và xóa quảng cáo trong game được bật mặc định💚 \n\n 🩵Plugin miễn phí để chia sẻ, chỉ dành cho học tập và giao tiếp!🩵\n\n💜 Vui lòng xóa hoàn toàn plugin này trong vòng 24 giờ sau khi tải xuống!!💜\n\n💗Kênh TG: @iosrxwy💗";
+
+"发布地址" = "Trang Phát Hành"; 

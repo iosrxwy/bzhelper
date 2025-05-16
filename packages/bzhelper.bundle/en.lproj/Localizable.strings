@@ -1,0 +1,71 @@
+// Menu Title
+"iOS宝藏" = "iOS Treasure";
+
+// Menu Items
+"广告加速" = "Ad Acceleration";
+"加速倍数" = "Acceleration Rate";
+"广告屏蔽" = "Ad Block";
+"屏蔽模式" = "Block Mode";
+"默认" = "Default";
+"自定义" = "Custom";
+"混合" = "Mixed";
+"编辑规则" = "Edit Rules";
+"游戏去广" = "Game Ad Block";
+"禁用摇广" = "Disable Shake Ads";
+"断网去广" = "Network Block";
+"触摸轨迹" = "Touch Trace";
+"内购解锁" = "In-App Purchase Unlock";
+
+// Alerts
+"已开启" = "Enabled";
+"我知道了" = "I Know";
+"不再提示" = "Don't Show Again";
+"保存" = "Save";
+"取消" = "Cancel";
+"保存成功" = "Save Successful";
+"稍后重启" = "Restart Later";
+"立即重启" = "Restart Now";
+"保存失败" = "Save Failed";
+"请检查文件权限或磁盘空间" = "Please check file permissions or disk space";
+
+// Info Section
+"插件版本" = "Plugin Version";
+"宝藏频道" = "Treasure Channel";
+"来了老弟" = "Join Us";
+"作者主页" = "Author's Homepage";
+
+// Alert Messages
+"仅适用于一般的视频广告加速" = "Only applies to general video ad acceleration";
+"建议速率15～25倍领奖励" = "Recommended rate 15-25x for rewards";
+"请勿与广告屏蔽同时开启" = "Do not enable with ad blocking";
+"可拦截大部分的应用广告" = "Can block most app ads";
+"如一般的伪装上架影视漫画软件" = "Such as disguised video and comic apps";
+"如酷安、喜马拉雅、迅雷、布蕾4K、大师兄、小狐狸等" = "Such as Coolapk, Himalaya, Thunder, Bulei4K, etc.";
+"公众号：木木iOS分享有制作教程" = "WeChat Official: Mumu iOS Sharing has tutorials";
+"已启用内置5000+广告拦截规则" = "Enabled built-in 5000+ ad blocking rules";
+"已启用自定义拦截规则" = "Enabled custom blocking rules";
+"可点击「编辑规则」进行修改" = "Click 'Edit Rules' to modify";
+"同时启用默认及自定义拦截规则" = "Enable both default and custom blocking rules";
+"仅用于去除大部分的游戏广告" = "Only for removing most game ads";
+"可配合加速及广告屏蔽使用" = "Can be used with acceleration and ad blocking";
+"开启此功能后需重启APP" = "Need to restart APP after enabling this feature";
+"开启后可在屏幕显示手势触摸轨迹" = "Show touch gesture trail on screen after enabling";
+"单独推荐：Touch-Viz" = "Recommended: Touch-Viz";
+"目前仅适用于一般本地验证类的应用" = "Currently only applies to general local verification apps";
+"如喝水时间、解压专家、Widgy、倒数日，等" = "Such as Water Time, Unzip Expert, Widgy, Countdown, etc.";
+"单独推荐：@SatellaJailed" = "Recommended: @SatellaJailed";
+"禁止部分摇动手机时的广告跳转" = "Block some ad redirects when shaking phone";
+"单独可用@huamidev的ShakeShield，越狱用禁字诀" = "Can use @huamidev's ShakeShield, use 禁字诀 for jailbreak";
+"简单粗暴适用于单机应用/游戏" = "Simple and effective for single-player apps/games";
+"单独可用@DevelopCubeLab的DisconnectAppNetwork" = "Can use @DevelopCubeLab's DisconnectAppNetwork";
+
+// Footer
+"仅供免费测试，切勿做它用！" = "For free testing only, do not use for other purposes!";
+"感谢来了老弟在初版中的错误修正" = "Thanks to 来了老弟 for error fixes in the initial version";
+"感谢公众号：十三座州府I的去广告优化" = "Thanks to WeChat Official: 十三座州府I for ad blocking optimization";
+"感谢🌺huami的鼎力支持代码优化及改善建议！" = "Thanks to 🌺huami for code optimization and improvement suggestions!";
+
+// Welcome Message
+"🩷1.6.6最新版🩷 \n\n❤️三指双击打开功能菜单❤️ \n\n 💛双指双击菜单即可关闭💛 \n\n  💚广告屏蔽游戏去广告已默认开启💚 \n\n 🩵插件免费分享，仅供学习交流，勿做他用！🩵\n\n💜 请于下载后24小时内，彻底删除本插件！！💜\n\n💗TG频道：@iosrxwy💗" = "🩷Version 1.6.6🩷 \n\n❤️Triple-tap with three fingers to open menu❤️ \n\n 💛Double-tap with two fingers to close menu💛 \n\n  💚Ad blocking and game ad removal enabled by default💚 \n\n 🩵Plugin is free for sharing, for learning and communication only!🩵\n\n💜 Please completely delete this plugin within 24 hours after downloading!!💜\n\n💗TG Channel: @iosrxwy💗";
+
+"发布地址" = "Release Page"; 
