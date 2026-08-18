@@ -21,9 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray<NSArray<UIColor *> *> *animationColorPairs;
 @property (nonatomic, strong) UIColor *borderLightColor;
 @property (nonatomic, strong) UIColor *borderDarkColor;
+@property (nonatomic, assign) BOOL isPanel;
 
 + (instancetype)panelTokens;
 + (instancetype)sectionTokens;
++ (BOOL)supportsSystemGlass;
 
 @end
 

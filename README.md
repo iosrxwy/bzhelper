@@ -2,11 +2,15 @@
 
 宝藏助手开源版，先放出双套主题主菜单 UI（`BZMenuKit`）。
 
-视觉对齐现网主菜单壳：320×450、默认 / 液态玻璃、标题栏、拖拽、功能区 + 信息区。Demo 只放演示控件，不含业务功能和致谢名单。
+视觉对齐现网主菜单壳：320×450、默认 / 液态玻璃、标题栏、拖拽、功能区 + 信息区。iOS 26+ 的液态玻璃走系统 `UIGlassEffect`，更低版本回落到毛玻璃渐变。Demo 只放演示控件。
 
 This repository publishes the overlay menu UI. The chrome matches the shipping panel; the demo only shows sample rows.
 
 ## 预览
+
+| 液态玻璃 | 默认主题 |
+| --- | --- |
+| <img src="docs/screenshots/menu-glass.png" alt="液态玻璃主题" width="280"> | <img src="docs/screenshots/menu-default.png" alt="默认主题" width="280"> |
 
 用 Xcode 打开 [`BZMenuKit.xcodeproj`](BZMenuKit.xcodeproj)，跑 `BZMenuKitDemo`。
 

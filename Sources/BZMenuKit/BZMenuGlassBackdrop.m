@@ -35,6 +35,7 @@ static UIColor *BZRGB(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
     ];
     tokens.borderLightColor = [UIColor colorWithWhite:1.0 alpha:0.7];
     tokens.borderDarkColor = BZRGB(0.80, 0.85, 0.90, 0.40);
+    tokens.isPanel = YES;
     return tokens;
 }
 
@@ -65,7 +66,15 @@ static UIColor *BZRGB(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
     ];
     tokens.borderLightColor = [UIColor colorWithWhite:1.0 alpha:0.6];
     tokens.borderDarkColor = BZRGB(0.75, 0.80, 0.85, 0.35);
+    tokens.isPanel = NO;
     return tokens;
+}
+
++ (BOOL)supportsSystemGlass {
+    if (@available(iOS 26.0, *)) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
@@ -84,33 +93,52 @@ static UIColor *BZRGB(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
         _tokens = tokens;
         self.userInteractionEnabled = NO;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-        UIBlurEffect *blur;
-        if (@available(iOS 13.0, *)) {
-            blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
-        } else {
-            blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
-        }
-        _blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-        _blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _blurView.alpha = tokens.blurAlpha;
-        _blurView.layer.cornerRadius = tokens.cornerRadius;
-        _blurView.layer.masksToBounds = YES;
-        [self addSubview:_blurView];
-
-        _fluidLayer = [CAGradientLayer layer];
-        _fluidLayer.cornerRadius = tokens.cornerRadius;
-        _fluidLayer.locations = tokens.locations;
-        _fluidLayer.startPoint = CGPointMake(0, 0);
-        _fluidLayer.endPoint = CGPointMake(1, 1);
-        [_blurView.contentView.layer addSublayer:_fluidLayer];
+        [self installEffect];
     }
     return self;
+}
+
+- (void)installEffect {
+    if (@available(iOS 26.0, *)) {
+        UIGlassEffectStyle style = self.tokens.isPanel ? UIGlassEffectStyleRegular : UIGlassEffectStyleClear;
+        UIGlassEffect *glass = [UIGlassEffect effectWithStyle:style];
+        glass.interactive = YES;
+        self.blurView = [[UIVisualEffectView alloc] initWithEffect:glass];
+        self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.blurView.layer.cornerRadius = self.tokens.cornerRadius;
+        self.blurView.layer.masksToBounds = YES;
+        self.blurView.clipsToBounds = YES;
+        [self addSubview:self.blurView];
+        return;
+    }
+
+    UIBlurEffect *blur;
+    if (@available(iOS 13.0, *)) {
+        blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
+    } else {
+        blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+    }
+    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.blurView.alpha = self.tokens.blurAlpha;
+    self.blurView.layer.cornerRadius = self.tokens.cornerRadius;
+    self.blurView.layer.masksToBounds = YES;
+    [self addSubview:self.blurView];
+
+    self.fluidLayer = [CAGradientLayer layer];
+    self.fluidLayer.cornerRadius = self.tokens.cornerRadius;
+    self.fluidLayer.locations = self.tokens.locations;
+    self.fluidLayer.startPoint = CGPointMake(0, 0);
+    self.fluidLayer.endPoint = CGPointMake(1, 1);
+    [self.blurView.contentView.layer addSublayer:self.fluidLayer];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.blurView.frame = self.bounds;
+    if (!self.fluidLayer) {
+        return;
+    }
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     self.fluidLayer.frame = self.bounds;
@@ -134,11 +162,19 @@ static UIColor *BZRGB(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
 }
 
 - (void)refreshColorsForTraitCollection:(UITraitCollection *)trait {
-    NSArray<id> *fromColors = [BZMenuAppearance resolvedCGColorsFromPairs:self.tokens.baseColorPairs trait:trait];
-    NSArray<id> *toColors = [BZMenuAppearance resolvedCGColorsFromPairs:self.tokens.animationColorPairs trait:trait];
     UIColor *border = [BZMenuAppearance resolvedColorWithLight:self.tokens.borderLightColor
                                                           dark:self.tokens.borderDarkColor
                                                          trait:trait];
+    UIView *host = self.superview;
+    if (host && ![BZMenuGlassTokenSet supportsSystemGlass]) {
+        host.layer.borderColor = border.CGColor;
+    }
+    if (!self.fluidLayer) {
+        return;
+    }
+
+    NSArray<id> *fromColors = [BZMenuAppearance resolvedCGColorsFromPairs:self.tokens.baseColorPairs trait:trait];
+    NSArray<id> *toColors = [BZMenuAppearance resolvedCGColorsFromPairs:self.tokens.animationColorPairs trait:trait];
 
     [self.fluidLayer removeAllAnimations];
     self.fluidLayer.colors = fromColors;
@@ -171,12 +207,6 @@ static UIColor *BZRGB(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
         endAnimation.toValue = [NSValue valueWithCGPoint:self.tokens.animatedEndPoint];
         [self.fluidLayer addAnimation:endAnimation forKey:@"fluidEndPoint"];
     }
-
-    UIView *host = self.superview;
-    if (!host) {
-        return;
-    }
-    host.layer.borderColor = border.CGColor;
 }
 
 @end
