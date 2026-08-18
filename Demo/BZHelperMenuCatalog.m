@@ -31,70 +31,26 @@ static float BZDemoFloat(NSString *name, float fallback) {
 @implementation BZHelperMenuCatalog
 
 + (BZMenuConfiguration *)configuration {
-    BOOL adBlockOn = BZDemoBool(@"adblock", NO);
-    NSInteger mode = BZDemoInteger(@"mode", 0);
-
-    BZMenuItem *boost = [BZMenuItem sliderItem:@"rate" title:@"加速倍数" value:BZDemoFloat(@"rate", 20.0) min:1.0 max:300.0];
-    BZMenuItem *modeItem = [BZMenuItem segmentItem:@"mode"
-                                            title:@"屏蔽模式"
-                                          options:@[@"默认", @"自定义", @"混合"]
-                                         selected:mode];
-    modeItem.enabled = adBlockOn;
-
-    BZMenuItem *rules = [BZMenuItem segmentItem:@"rules"
-                                         title:@"默认规则"
-                                       options:@[@"一般", @"增强", @"不当人"]
-                                      selected:BZDemoInteger(@"rules", 2)];
-    rules.enabled = adBlockOn && mode == 0;
-
-    BZMenuItem *channel = [BZMenuItem disclosureItem:@"channel" title:@"宝藏频道"];
-    channel.usesAccentColor = YES;
-    channel.urlString = @"https://t.me/iosrxwy";
-
-    BZMenuItem *release = [BZMenuItem disclosureItem:@"release" title:@"发布地址"];
-    release.usesAccentColor = YES;
-    release.urlString = @"https://github.com/iosrxwy/bzhelper";
-
-    BZMenuItem *version = [BZMenuItem valueItem:@"version" title:@"插件版本" value:@"1.6.7"];
+    BZMenuItem *version = [BZMenuItem valueItem:@"version" title:@"版本" value:@"1.0.0"];
     version.togglesThemeOnLongPress = YES;
 
-    BZMenuItem *thanks = [BZMenuItem noteItem:@"thanks" text:[@[
-        @"仅供免费测试，切勿做它用！",
-        @"感谢来了老弟在初版中的错误修正",
-        @"感谢公众号：十三座州府I的去广告优化",
-        @"感谢🌺huami的鼎力支持代码优化及改善建议！"
-    ] componentsJoinedByString:@"\n"]];
-
     BZMenuConfiguration *config = [[BZMenuConfiguration alloc] init];
-    config.title = @"iOS宝藏";
-    config.versionText = @"1.6.7";
+    config.title = @"BZ Menu";
+    config.versionText = @"1.0.0";
     config.theme = BZMenuThemeStyleGlass;
     config.themePersistenceKey = @"bz_menu_theme";
     config.sections = @[
         [BZMenuSection functionSectionWithItems:@[
-            [BZMenuItem switchItem:@"reward" title:@"秒过激励" on:BZDemoBool(@"reward", NO)],
-            [BZMenuItem switchItem:@"boost" title:@"广告加速" on:BZDemoBool(@"boost", NO)],
-            boost,
-            [BZMenuItem switchItem:@"adblock" title:@"广告屏蔽" on:adBlockOn],
-            modeItem,
-            rules,
-            [BZMenuItem disclosureItem:@"edit" title:@"编辑规则"],
-            [BZMenuItem switchItem:@"game" title:@"游戏去广" on:BZDemoBool(@"game", NO)],
-            [BZMenuItem switchItem:@"shake" title:@"禁用摇广" on:BZDemoBool(@"shake", NO)],
-            [BZMenuItem switchItem:@"netblock" title:@"断网去广" on:BZDemoBool(@"netblock", NO)],
-            [BZMenuItem switchItem:@"rating" title:@"禁用评分" on:BZDemoBool(@"rating", NO)],
-            [BZMenuItem switchItem:@"trail" title:@"触摸轨迹" on:BZDemoBool(@"trail", NO)],
-            [BZMenuItem switchItem:@"iap" title:@"内购解锁" on:BZDemoBool(@"iap", NO)],
-            [BZMenuItem switchItem:@"monitor" title:@"网络监听" on:BZDemoBool(@"monitor", NO)],
-            [BZMenuItem disclosureItem:@"monitor.page" title:@"监听页面"]
+            [BZMenuItem switchItem:@"demo.switch" title:@"演示开关" on:BZDemoBool(@"demo.switch", YES)],
+            [BZMenuItem sliderItem:@"demo.slider" title:@"演示滑杆" value:BZDemoFloat(@"demo.slider", 2.0) min:1.0 max:5.0],
+            [BZMenuItem segmentItem:@"demo.mode"
+                             title:@"演示模式"
+                           options:@[@"选项 A", @"选项 B", @"选项 C"]
+                          selected:BZDemoInteger(@"demo.mode", 0)],
+            [BZMenuItem disclosureItem:@"demo.page" title:@"演示页面"]
         ]],
         [BZMenuSection infoSectionWithItems:@[
-            version,
-            [BZMenuItem disclosureItem:@"cache" title:@"缓存清理"],
-            [BZMenuItem disclosureItem:@"language" title:@"语言切换"],
-            channel,
-            release,
-            thanks
+            version
         ]]
     ];
     return config;

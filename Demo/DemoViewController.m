@@ -106,19 +106,9 @@
                                    delegate:self];
 }
 
-- (void)syncDependentRows {
-    BZMenuItem *adblock = [self.panel.configuration itemWithIdentifier:@"adblock"];
-    BZMenuItem *mode = [self.panel.configuration itemWithIdentifier:@"mode"];
-    BZMenuItem *rules = [self.panel.configuration itemWithIdentifier:@"rules"];
-    mode.enabled = adblock.on;
-    rules.enabled = adblock.on && mode.selectedIndex == 0;
-    [self.panel reloadRows];
-}
-
 - (void)menuPanel:(BZMenuPanel *)panel didToggleItem:(BZMenuItem *)item on:(BOOL)on {
     [BZHelperMenuCatalog persistItem:item];
     [BZMenuAppearance performImpact];
-    [self syncDependentRows];
     [BZMenuToast show:[NSString stringWithFormat:@"%@ %@", item.title, on ? @"已开启" : @"已关闭"]];
 }
 
@@ -128,79 +118,23 @@
 
 - (void)menuPanel:(BZMenuPanel *)panel didSelectSegment:(BZMenuItem *)item index:(NSInteger)index {
     [BZHelperMenuCatalog persistItem:item];
-    [self syncDependentRows];
 }
 
 - (void)menuPanel:(BZMenuPanel *)panel didTapItem:(BZMenuItem *)item {
-    if ([item.identifier isEqualToString:@"edit"] || [item.identifier isEqualToString:@"monitor.page"]) {
-        [BZMenuToast show:@"开源版仅含 UI，不含功能实现"];
-        return;
-    }
-    if ([item.identifier isEqualToString:@"cache"]) {
-        [self showCacheOptions];
-        return;
-    }
-    if ([item.identifier isEqualToString:@"language"]) {
-        [self showLanguageOptions];
-    }
-}
-
-- (void)menuPanelDidTapClose:(BZMenuPanel *)panel {
+    [BZMenuToast show:[NSString stringWithFormat:@"打开%@", item.title]];
 }
 
 - (void)menuPanelDidLongPressClose:(BZMenuPanel *)panel {
     [panel dismissAnimated:YES];
-    [BZMenuToast show:@"开源版未包含悬浮球"];
 }
 
 - (void)menuPanelDidTapLeadingButton:(BZMenuPanel *)panel {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"应用重启"
-                                                                   message:@"确定要重启应用吗？"
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确认重启" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [BZMenuToast show:@"⚠️ Demo 不会真正重启"];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [BZMenuToast show:@"这是演示按钮"];
 }
 
 - (void)menuPanel:(BZMenuPanel *)panel didChangeTheme:(BZMenuThemeStyle)style {
     NSString *name = BZMenuThemeWithStyle(style).displayName;
     [BZMenuToast show:[NSString stringWithFormat:@"已切换到%@", name]];
-}
-
-- (void)showCacheOptions {
-    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"缓存清理"
-                                                                   message:nil
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-    [sheet addAction:[UIAlertAction actionWithTitle:@"一般清理" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [BZMenuToast show:@"开源版仅演示入口"];
-    }]];
-    [sheet addAction:[UIAlertAction actionWithTitle:@"深度清理" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [BZMenuToast show:@"开源版仅演示入口"];
-    }]];
-    [sheet addAction:[UIAlertAction actionWithTitle:@"极度清理" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [BZMenuToast show:@"开源版仅演示入口"];
-    }]];
-    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:sheet animated:YES completion:nil];
-}
-
-- (void)showLanguageOptions {
-    NSArray<NSString *> *names = @[
-        @"🇨🇳 简体中文", @"🇭🇰 繁體中文", @"🇺🇸 English", @"🇯🇵 日本語",
-        @"🇰🇷 한국어", @"🇫🇷 Français", @"🇷🇺 Русский", @"🇻🇳 Tiếng Việt", @"🇮🇳 हिन्दी"
-    ];
-    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"选择语言"
-                                                                   message:@"请选择您要使用的语言"
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-    for (NSString *name in names) {
-        [sheet addAction:[UIAlertAction actionWithTitle:name style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [BZMenuToast show:[NSString stringWithFormat:@"已选择 %@", name]];
-        }]];
-    }
-    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:sheet animated:YES completion:nil];
 }
 
 @end

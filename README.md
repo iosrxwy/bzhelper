@@ -2,17 +2,17 @@
 
 宝藏助手开源版，先放出双套主题主菜单 UI（`BZMenuKit`）。
 
-视觉对齐现网主菜单：320×450、默认 / 液态玻璃、标题栏、拖拽、功能区 + 信息区。开关和入口是 Demo，不含 Hook、去广告实现或内购逻辑。
+视觉对齐现网主菜单壳：320×450、默认 / 液态玻璃、标题栏、拖拽、功能区 + 信息区。Demo 只放演示控件，不含业务功能和致谢名单。
 
-This repository currently publishes the overlay menu UI used by 宝藏助手. The look matches the shipping panel; feature rows are inert.
+This repository publishes the overlay menu UI. The chrome matches the shipping panel; the demo only shows sample rows.
 
 ## 预览
 
 用 Xcode 打开 [`BZMenuKit.xcodeproj`](BZMenuKit.xcodeproj)，跑 `BZMenuKitDemo`。
 
 - 启动后自动弹出菜单
-- 长按「插件版本」在默认主题和液态玻璃之间切换
-- 右上角 `−` 收起，左上角 `×` 弹出重启确认（Demo 不会杀进程）
+- 长按「版本」在默认主题和液态玻璃之间切换
+- 右上角 `−` 收起，左上角 `×` 弹出确认（Demo 不会杀进程）
 - 双指双击收起
 
 ## 嵌入
@@ -23,16 +23,19 @@ This repository currently publishes the overlay menu UI used by 宝藏助手. Th
 #import "BZMenuKit.h"
 
 BZMenuConfiguration *config = [BZMenuConfiguration new];
-config.title = @"iOS宝藏";
+config.title = @"BZ Menu";
 config.theme = BZMenuThemeStyleGlass;
 config.themePersistenceKey = @"bz_menu_theme";
 config.sections = @[
     [BZMenuSection functionSectionWithItems:@[
-        [BZMenuItem switchItem:@"boost" title:@"广告加速" on:NO],
-        [BZMenuItem sliderItem:@"rate" title:@"加速倍数" value:20 min:1 max:300],
+        [BZMenuItem switchItem:@"demo.switch" title:@"演示开关" on:YES],
+        [BZMenuItem sliderItem:@"demo.slider" title:@"演示滑杆" value:2 min:1 max:5],
+        [BZMenuItem segmentItem:@"demo.mode" title:@"演示模式"
+                        options:@[@"选项 A", @"选项 B", @"选项 C"] selected:0],
+        [BZMenuItem disclosureItem:@"demo.page" title:@"演示页面"],
     ]],
     [BZMenuSection infoSectionWithItems:@[
-        [BZMenuItem valueItem:@"version" title:@"插件版本" value:@"1.6.7"],
+        [BZMenuItem valueItem:@"version" title:@"版本" value:@"1.0.0"],
     ]],
 ];
 [BZMenuPanel presentInView:self.view configuration:config delegate:self];
@@ -44,7 +47,7 @@ config.sections = @[
 
 ```
 Sources/BZMenuKit/   可复用 UI 组件
-Demo/                现网主菜单外观 Demo
+Demo/                演示用主菜单
 ```
 
 ## 许可证
