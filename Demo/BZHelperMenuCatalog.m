@@ -34,6 +34,16 @@ static float BZDemoFloat(NSString *name, float fallback) {
     BZMenuItem *version = [BZMenuItem valueItem:@"version" title:@"版本" value:@"1.0.0"];
     version.togglesThemeOnLongPress = YES;
 
+    BZMenuItem *channel = [BZMenuItem disclosureItem:@"channel" title:@"宝藏频道"];
+    channel.usesAccentColor = YES;
+    channel.urlString = @"https://t.me/iosrxwy";
+
+    BZMenuItem *release = [BZMenuItem disclosureItem:@"release" title:@"发布地址"];
+    release.usesAccentColor = YES;
+    release.urlString = @"https://github.com/iosrxwy/bzhelper";
+
+    BZMenuItem *note = [BZMenuItem noteItem:@"note" text:@"当前为开源演示版本。仅含UI 显示。"];
+
     BZMenuConfiguration *config = [[BZMenuConfiguration alloc] init];
     config.title = @"BZ Menu";
     config.versionText = @"1.0.0";
@@ -50,7 +60,10 @@ static float BZDemoFloat(NSString *name, float fallback) {
             [BZMenuItem disclosureItem:@"demo.page" title:@"演示页面"]
         ]],
         [BZMenuSection infoSectionWithItems:@[
-            version
+            version,
+            channel,
+            release,
+            note
         ]]
     ];
     return config;
