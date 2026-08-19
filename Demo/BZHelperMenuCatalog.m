@@ -42,11 +42,10 @@ static float BZDemoFloat(NSString *name, float fallback) {
     release.usesAccentColor = YES;
     release.urlString = @"https://github.com/iosrxwy/bzhelper";
 
-    BZMenuItem *note = [BZMenuItem noteItem:@"note" text:@"当前为开源演示版本。仅含UI 显示。"];
-
     BZMenuConfiguration *config = [[BZMenuConfiguration alloc] init];
     config.title = @"BZ Menu";
     config.versionText = @"1.0.0";
+    config.footerNote = @"当前为开源演示版本。仅含UI 显示。";
     config.theme = BZMenuThemeStyleGlass;
     config.themePersistenceKey = @"bz_menu_theme";
     config.sections = @[
@@ -62,8 +61,7 @@ static float BZDemoFloat(NSString *name, float fallback) {
         [BZMenuSection infoSectionWithItems:@[
             version,
             channel,
-            release,
-            note
+            release
         ]]
     ];
     return config;

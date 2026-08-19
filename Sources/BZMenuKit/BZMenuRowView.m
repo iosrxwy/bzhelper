@@ -146,6 +146,7 @@
 }
 
 - (CGSize)fittedSwitchSize {
+    self.toggle.transform = CGAffineTransformIdentity;
     [self.toggle sizeToFit];
     CGSize size = self.toggle.bounds.size;
     if (size.width < 1.0 || size.height < 1.0) {
@@ -162,7 +163,7 @@
         return BZMenuRowHeight * 2.0 + BZMenuPadding;
     }
     if (self.item.type == BZMenuItemTypeSwitch) {
-        return MAX(BZMenuRowHeight, [self fittedSwitchSize].height);
+        return MAX(BZMenuRowHeight, ceil([self fittedSwitchSize].height));
     }
     if (self.item.type == BZMenuItemTypeNote) {
         CGSize size = [self.item.noteText boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)

@@ -18,6 +18,7 @@
     BZMenuConfiguration *copy = [[[self class] allocWithZone:zone] init];
     copy.title = self.title;
     copy.versionText = self.versionText;
+    copy.footerNote = self.footerNote;
     copy.theme = self.theme;
     copy.sections = self.sections;
     copy.themePersistenceKey = self.themePersistenceKey;

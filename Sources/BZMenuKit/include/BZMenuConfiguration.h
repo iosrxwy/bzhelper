@@ -8,6 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy, nullable) NSString *versionText;
+@property (nonatomic, copy, nullable) NSString *footerNote;
 @property (nonatomic, assign) BZMenuThemeStyle theme;
 @property (nonatomic, copy) NSArray<BZMenuSection *> *sections;
 @property (nonatomic, copy, nullable) NSString *themePersistenceKey;

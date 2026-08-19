@@ -168,6 +168,20 @@
         y = CGRectGetMaxY(sectionView.frame) + BZMenuPadding;
     }
     self.sectionViews = [sectionViews copy];
+    if (self.configuration.footerNote.length > 0) {
+        UILabel *footer = [[UILabel alloc] init];
+        footer.text = self.configuration.footerNote;
+        footer.font = [BZMenuAppearance noteFont];
+        footer.textColor = UIColor.lightGrayColor;
+        footer.textAlignment = NSTextAlignmentCenter;
+        footer.numberOfLines = 0;
+        [BZMenuAppearance applyTextShadowToLabel:footer];
+        CGFloat footerWidth = BZMenuPanelWidth - BZMenuPadding * 2.0;
+        CGSize size = [footer sizeThatFits:CGSizeMake(footerWidth, CGFLOAT_MAX)];
+        footer.frame = CGRectMake(BZMenuPadding, y, footerWidth, ceil(size.height));
+        [self.contentView addSubview:footer];
+        y = CGRectGetMaxY(footer.frame) + BZMenuPadding;
+    }
     self.contentView.frame = CGRectMake(0, 0, BZMenuPanelWidth, y + BZMenuPadding);
     self.scrollView.contentSize = self.contentView.frame.size;
 }
