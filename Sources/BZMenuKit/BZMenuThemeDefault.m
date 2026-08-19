@@ -10,7 +10,7 @@
 }
 
 - (NSString *)displayName {
-    return @"默认主题";
+    return @"常规主题";
 }
 
 - (void)applyToPanel:(UIView *)panel {

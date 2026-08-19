@@ -101,8 +101,14 @@
     if (self.panel.superview) {
         return;
     }
+    BZMenuConfiguration *config = [BZHelperMenuCatalog configuration];
+    const char *forcedTheme = getenv("BZ_MENU_THEME");
+    if (forcedTheme) {
+        config.themePersistenceKey = nil;
+        config.theme = atoi(forcedTheme);
+    }
     self.panel = [BZMenuPanel presentInView:self.view
-                              configuration:[BZHelperMenuCatalog configuration]
+                              configuration:config
                                    delegate:self];
 }
 
