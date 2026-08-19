@@ -145,9 +145,24 @@
     [self addSubview:self.titleLabel];
 }
 
+- (CGSize)fittedSwitchSize {
+    [self.toggle sizeToFit];
+    CGSize size = self.toggle.bounds.size;
+    if (size.width < 1.0 || size.height < 1.0) {
+        size = self.toggle.intrinsicContentSize;
+    }
+    if (size.width < 1.0 || size.height < 1.0) {
+        size = CGSizeMake(BZMenuSwitchWidth, 31.0);
+    }
+    return size;
+}
+
 - (CGFloat)heightThatFitsWidth:(CGFloat)width {
     if (self.item.type == BZMenuItemTypeSlider) {
         return BZMenuRowHeight * 2.0 + BZMenuPadding;
+    }
+    if (self.item.type == BZMenuItemTypeSwitch) {
+        return MAX(BZMenuRowHeight, [self fittedSwitchSize].height);
     }
     if (self.item.type == BZMenuItemTypeNote) {
         CGSize size = [self.item.noteText boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
@@ -164,10 +179,16 @@
     CGFloat width = CGRectGetWidth(self.bounds);
 
     switch (self.item.type) {
-        case BZMenuItemTypeSwitch:
-            self.titleLabel.frame = CGRectMake(0, 0, width - BZMenuSwitchWidth - 5.0, BZMenuRowHeight);
-            self.toggle.frame = CGRectMake(width - BZMenuSwitchWidth, 0, BZMenuSwitchWidth, BZMenuRowHeight);
+        case BZMenuItemTypeSwitch: {
+            CGSize switchSize = [self fittedSwitchSize];
+            CGFloat rowHeight = CGRectGetHeight(self.bounds);
+            self.toggle.frame = CGRectMake(width - switchSize.width,
+                                           (rowHeight - switchSize.height) / 2.0,
+                                           switchSize.width,
+                                           switchSize.height);
+            self.titleLabel.frame = CGRectMake(0, 0, width - switchSize.width - 8.0, rowHeight);
             break;
+        }
         case BZMenuItemTypeSlider:
             self.titleLabel.frame = CGRectMake(0, 0, width - 70.0, BZMenuRowHeight);
             self.slider.frame = CGRectMake(0, BZMenuRowHeight + BZMenuPadding, width - 50.0, BZMenuRowHeight);
@@ -181,10 +202,15 @@
             self.titleLabel.frame = CGRectMake(0, 0, width - 30.0, BZMenuRowHeight);
             self.accessoryLabel.frame = CGRectMake(width - 30.0, 0, 30.0, BZMenuRowHeight);
             break;
-        case BZMenuItemTypeValue:
-            self.titleLabel.frame = CGRectMake(0, 0, width - 70.0, BZMenuRowHeight);
-            self.accessoryLabel.frame = CGRectMake(width - 60.0, 0, 60.0, BZMenuRowHeight);
+        case BZMenuItemTypeValue: {
+            self.titleLabel.textAlignment = NSTextAlignmentLeft;
+            self.accessoryLabel.textAlignment = NSTextAlignmentRight;
+            CGFloat valueWidth = [self.accessoryLabel sizeThatFits:CGSizeMake(width, BZMenuRowHeight)].width;
+            valueWidth = MIN(width * 0.45, MAX(ceil(valueWidth), 1.0));
+            self.titleLabel.frame = CGRectMake(0, 0, width - valueWidth - 8.0, BZMenuRowHeight);
+            self.accessoryLabel.frame = CGRectMake(width - valueWidth, 0, valueWidth, BZMenuRowHeight);
             break;
+        }
         case BZMenuItemTypeNote:
             self.titleLabel.frame = self.bounds;
             break;

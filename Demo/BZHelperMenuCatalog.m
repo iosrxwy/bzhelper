@@ -31,7 +31,7 @@ static float BZDemoFloat(NSString *name, float fallback) {
 @implementation BZHelperMenuCatalog
 
 + (BZMenuConfiguration *)configuration {
-    BZMenuItem *version = [BZMenuItem valueItem:@"version" title:@"版本" value:@"1.0.0"];
+    BZMenuItem *version = [BZMenuItem valueItem:@"version" title:@"演示版本" value:@"1.0.0"];
     version.togglesThemeOnLongPress = YES;
 
     BZMenuItem *channel = [BZMenuItem disclosureItem:@"channel" title:@"宝藏频道"];

@@ -15,7 +15,7 @@ This repository publishes the overlay menu UI. The chrome matches the shipping p
 用 Xcode 打开 [`BZMenuKit.xcodeproj`](BZMenuKit.xcodeproj)，跑 `BZMenuKitDemo`。
 
 - 启动后自动弹出菜单
-- 长按「版本」在默认主题和液态玻璃之间切换
+- 长按「演示版本」在默认主题和液态玻璃之间切换
 - 右上角 `−` 收起，左上角 `×` 弹出确认（Demo 不会杀进程）
 - 双指双击收起
 
@@ -39,7 +39,7 @@ config.sections = @[
         [BZMenuItem disclosureItem:@"demo.page" title:@"演示页面"],
     ]],
     [BZMenuSection infoSectionWithItems:@[
-        [BZMenuItem valueItem:@"version" title:@"版本" value:@"1.0.0"],
+        [BZMenuItem valueItem:@"version" title:@"演示版本" value:@"1.0.0"],
     ]],
 ];
 [BZMenuPanel presentInView:self.view configuration:config delegate:self];
