@@ -1,10 +1,16 @@
 # bzhelper
 
-宝藏助手开源版，先放出双套主题主菜单 UI（`BZMenuKit`）。
+宝藏助手开源版，当前放出双套主题主菜单 UI（`BZMenuKit`），以及独立的设备与电量伪装示例。
 
 视觉对齐现网主菜单壳：320×450、常规 / 液态玻璃、标题栏、拖拽、功能区 + 信息区。iOS 26+ 的液态玻璃走系统 `UIGlassEffect`，更低版本回落到毛玻璃渐变。Demo 只放演示控件。
 
 This repository publishes the overlay menu UI. The chrome matches the shipping panel; the demo only shows sample rows.
+
+## 设备与电量伪装
+
+[`Examples/DeviceSpoof`](Examples/DeviceSpoof) 提供从宝藏助手整理出的独立
+Theos tweak 示例，覆盖设备型号、名称、系统版本、电量与充电状态。该示例不包含
+IDFA/IDFV、ATT、一键新机、Keychain、定位或缓存清理代码。
 
 ## 预览
 
@@ -52,6 +58,7 @@ config.sections = @[
 ```
 Sources/BZMenuKit/   可复用 UI 组件
 Demo/                演示用主菜单
+Examples/DeviceSpoof/ 设备与电量伪装示例（Theos tweak）
 ```
 
 ## 许可证
