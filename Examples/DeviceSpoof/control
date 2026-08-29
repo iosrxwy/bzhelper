@@ -1,0 +1,9 @@
+Package: com.example.bzdevicespoof
+Name: BZDeviceSpoofExample
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Device and battery spoofing example extracted from bzhelper.
+Maintainer: bzhelper
+Author: bzhelper
+Section: Tweaks
+Depends: mobilesubstrate

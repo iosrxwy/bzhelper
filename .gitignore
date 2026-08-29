@@ -9,5 +9,7 @@ build/
 *.dSYM.zip
 *.dSYM
 .swiftpm/
+Examples/DeviceSpoof/.theos/
+Examples/DeviceSpoof/packages/
 .claude/
 .cursor/
